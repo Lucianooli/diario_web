@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../static/users/images/favicon.2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../static/users/css/register.css">
+    <title>|Diário Virtual| Registrar |</title>
+</head>
+<body>
+    <a href="{% url 'index' %}">
+        <button class="diario_pag">Pagina Inicial</button>
+    </a>
+    <div class="container">
+        <div class="register-box">
+            <h2>Registrar</h2>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="text1">
+                    <label for="{{ form.username.id_for_label }}" class="text_user">Usuário:</label>
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
+                <div class="text2">
+                    <label for="{{ form.password1.id_for_label }}" class="text_senha">Senha:</label>
+                    {{ form.password1}}
+                    {{ form.password1.errors}}
+                </div>
+                <div class="text3">
+                    <label for="{{ form.password2.id_for_label }}" class="text_senha2">Confirme a senha:</label>
+                    {{ form.password2}}
+                    <span id="password-confirm-message" style="color: red; display: none;" class="erro1">🦇(AS SENHAS NÃO COINCIDEM.)🦇</span>
+                    <span id="password-format-message" class="erro2" style="display: none;">🦇(A SENHA DEVE CONTER PELO MENOS UMA LETRA E UM NÚMERO.)🦇</span>
+                    <span id="username-format-message" class="erro3" style=" display: none;">🦇(O NOME DEVE CONTER LETRAS E NÚMEROS OU UM DOS SÍMBOLOS @, ., +, -, _.)🦇</span>
+            <form action="{% url 'register' %}" method="post">
+                </div>
+                
+                
+                    <p class="p1">🦇Nome Somente letras, dígitos e @/./+/-/_🦇</p>
+                    <p class="p2">🦇Nome deve conter letras e um dos simbolos acima🦇</p>
+                    <p class="p3">🦇Sua senha deve conter pelo menos 8 caracteres🦇</p>
+                    <p class="p4">🦇Sua senha deve conter números e letras🦇</p>
+                    <p class="p5">🦇Digite a mesma senha de antes, para verificação🦇</p>
+                
+                
+                <button type="submit" class="botao">Registrar</button>
+                <input type="hidden" name="next" value="{% url 'index' %}">
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+    
+            form.addEventListener('submit', function(event) {
+                const username = form.querySelector('#{{ form.username.id_for_label }}').value;
+                const password1 = form.querySelector('#{{ form.password1.id_for_label }}').value;
+                const password2 = form.querySelector('#{{ form.password2.id_for_label }}').value;
+                const errorSpan = document.getElementById('password-confirm-message');
+                const formatErrorSpan = document.getElementById('password-format-message');
+                const usernameErrorSpan = document.getElementById('username-format-message');
+    
+                // Verifica se as senhas são iguais
+                if (password1 !== password2) {
+                    errorSpan.style.display = 'block';  // Mostra a mensagem de erro
+                    event.preventDefault();  // Impede o envio do formulário
+                } else {
+                    errorSpan.style.display = 'none';  // Esconde a mensagem de erro, se estiver visível
+                }
+    
+                // Verifica se a senha contém pelo menos uma letra e um número
+                const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+                if (!passwordRegex.test(password1)) {
+                    formatErrorSpan.style.display = 'block';  // Mostra a mensagem de erro de formato
+                    event.preventDefault();  // Impede o envio do formulário
+                } else {
+                    formatErrorSpan.style.display = 'none';  // Esconde a mensagem de erro de formato, se estiver visível
+                }
+    
+                // Verifica se o nome de usuário contém pelo menos uma letra e um dos símbolos permitidos
+                const usernameRegex = /^(?=.*[A-Za-z])(?=.*[@.+-_]).+$/;
+                if (!usernameRegex.test(username)) {
+                    usernameErrorSpan.style.display = 'block';  // Mostra a mensagem de erro de formato do nome
+                    event.preventDefault();  // Impede o envio do formulário
+                } else {
+                    usernameErrorSpan.style.display = 'none';  // Esconde a mensagem de erro de formato do nome, se estiver visível
+                }
+            });
+        });
+        </script>
+</body>
+</html>

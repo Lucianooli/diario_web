@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+:root {
+    --custom-cursor: url('../images/cursor\ \(1\).cur'), auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Melhor prática */
+    font-family: Arial, sans-serif;
+    cursor: var(--custom-cursor);
+}
+
+body {
+    background-image: url('../images/topics.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Para evitar rolagem no corpo */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lala{
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 20px;
+    position: absolute;
+    margin-top: -310px;
+    margin-left: -180px;
+}
+.lala:hover{
+    background-color: #520707;
+}
+.entry-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: left;
+    margin-top: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 1000px;
+    max-width: 1000px;
+    max-height: 700px;
+    height: 700px;
+    text-align: center;
+    position: fixed;
+    overflow: auto; /* Permite rolagem dentro do elemento */
+}   
+
+.editar, .editar2, .voltar {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 20px;
+}
+
+.editar:hover, .editar2:hover, .voltar:hover {
+    background-color: #790000;
+}
+
+.editar2 {
+    position: relative;
+    margin-top: 50px;
+    margin-left: -60px;
+}
+
+
+.titulo1 {
+    color: transparent;
+    font-family: 'Oxygen', sans-serif;
+    background: linear-gradient(to top, #520707, #ff0000);
+    background-size: 100% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: degrade 5s linear infinite;
+}
+
+.txt1 {
+    word-wrap: break-word;
+    white-space: pre-wrap;/* Preserves whitespace and wraps long lines */ 
+    margin: 0 0 10px 0;
+}
+
+.voltar {
+    position: absolute;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: -320px;
+    margin-left: -1440px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.b1{
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 20px;  
+
+}
+@keyframes degrade {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}

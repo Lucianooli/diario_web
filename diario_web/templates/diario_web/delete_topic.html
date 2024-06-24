@@ -1,0 +1,13 @@
+<!-- templates/diario_web/delete_topic.html -->
+{% extends "diario_web/base.html" %}
+
+{% block content %}
+  <h2>Deletar Tópico</h2>
+  <p>Tem certeza de que deseja deletar o tópico "{{ topic.text }}"?</p>
+
+  <form action="{% url 'delete_topic' topic.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Deletar</button>
+    <a href="{% url 'topics' %}">Cancelar</a>
+  </form>
+{% endblock content %}

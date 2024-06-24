@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+:root {
+    --custom-cursor: url('../images/cursor\ \(1\).cur'), auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oxygen', sans-serif;
+    cursor: var(--custom-cursor);
+}
+
+body {
+    background-image: url('../images/topics.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 1100px;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+.titulo1 {
+    height: 380px;
+    color: transparent;
+    font-family: 'Oxygen', sans-serif;
+    background: linear-gradient(to top, #520707, #ff0000);
+    background-size: 100% 200%;
+    font-size: 25px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: degrade 5s linear infinite;
+}
+
+.editar-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.editar-form .p1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editar-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.editar-form input[type="text"], 
+.editar-form textarea {
+    width: 100%;
+    height: 570px;
+    margin-top: -320px;
+    max-height: 640px;
+    padding: 10px;
+    border: 1px solid #ff4747;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.submit-button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #790000;
+}
+
+@keyframes degrade {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.voltar{
+    color: white;
+    font-family: 'Oxygen', sans-serif;
+    background-color: #ff0000;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 40px;
+    padding: 10px;
+    position: absolute;
+    margin-left: -140px;
+    margin-top: -340px;
+}
+
+.voltar:hover{
+    background-color: #b30000;
+    
+}

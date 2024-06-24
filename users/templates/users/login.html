@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../static/users/images/favicon.2.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../static/users/css/login.css">
+    <title>|Diário Virtual| Login |</title>
+</head>
+<body>
+  
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            {% if form.errors %}
+                <p class="error">Seu login está incorreto, tente novamente</p>
+            {% endif %}
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Nome</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.password.id_for_label }}">Senha</label>
+                    {{ form.password }}
+                </div>
+                <button type="submit" class="botao">Entrar</button>
+                <input type="hidden" name="next" value="{% url 'index' %}">
+                
+            </form>
+        </div>
+        <a href="{% url 'index' %}">
+            <button class="diario_pag">Pagina Inicial</button>
+        </a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../static/diario_web/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../static/diario_web/css/paginas.css">
+    <title>|Diário Virtual| Páginas |</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <ul>
+                {% for topic in topics %}
+
+                <li>
+                    <a href="{% url 'topic'  topic.id%}" class="pagina"> <button class="txt1">Página: {{ topic }}🧛🦇 </button></a>
+                    <p>{{ topic.date_added | date:'M d, Y H:i' }}</p>
+                </li>
+                {% empty %}
+                    <li class="ta">Crie uma nova página</li>
+                {% endfor %}
+            
+            </ul>
+        </div>
+
+    </div>
+    <div>
+        <a href="{% url 'index' %}">
+            <button class="diario_pag">Pagina Inicial</button>
+        </a>
+    </div>
+    <a href="{% url 'new_topic' %}"><button class="nova">CRIAR NOVA PÁGINA</button</a>
+    
+</body>
+</html>

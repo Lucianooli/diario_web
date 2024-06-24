@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>|Diário Virtual| Página {{ topic }} |</title>
+    <link rel="shortcut icon" href="../../static/diario_web/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../static/diario_web/css/escrever.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h3 class="titulo1">Diário: Página {{ topic }}</h3>
+            <form action="{% url 'edit_entry' entry.id %}" method="post" class="editar-form">
+                <div class="p1">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+                <button class="submit-button" name="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+    <a href="{% url 'topic' topic.id %}">
+        <button class="voltar">Retornar &#x21A9;&#xFE0F;</button>
+    </a>
+</body>
+</html>

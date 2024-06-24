@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>|Diário Virtual| Página {{ topic }} |</title>
+    <link rel="shortcut icon" href="../../static/diario_web/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../static/diario_web/css/pagina.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1 class="titulo1">Diário: Página {{ topic }}</h1>            
+            <ul>
+                {% for entry in entries %}
+                    <li class="entry-item">
+                        <p class="txt1">{{ entry.text }}</p>
+                        <a href="{% url 'edit_entry' entry.id %}">
+                            <button class="editar">Escrever Diário &#128217;</button>
+                        </a>
+                    </li>
+                {% empty %}
+                    <li>
+                        <a href="{% url 'new_entry' topic.id %}">
+                            <button class="editar2">Escrever diário &#128217;</button>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <a href="{% url 'topics' %}">
+        <button class="voltar">Retornar &#x21A9;&#xFE0F;</button>
+    </a>
+    <a href="{% url 'delete_topic' topic.id %}">
+        <button class="lala">Deletar Página</button>
+    </a>
+</body>
+</html>

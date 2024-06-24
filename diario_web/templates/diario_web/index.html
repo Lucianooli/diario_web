@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/diario_web/css/index.css">
+    <link rel="shortcut icon" href="../../static/diario_web/images/favicon.png" type="image/x-icon">
+    <title>|Diário Virtual| Fandom The Vampire Diaries| </title>
+</head>
+<body>
+    
+
+    
+    <h1 class="diario_virtual">Diário Virtual</h1>
+    {% if user.is_authenticated %}
+    <a href="{% url 'topics' %}">
+        <button class="diario_pag">Diário Inicial</button>
+    </a>
+    <img class="login_img" src="../../static/diario_web/images/login_t.jpg" alt="">
+    <a href="{% url 'logout' %}">
+        <button class="logout" >SAIR</button>
+    </a>
+    
+    <h1 class="titulo6">
+        LOGIN ( {{user.username }} )
+    </h1>
+
+    {% else %}
+        <a href="{% url 'login' %}">
+          <button class="login" >ENTRAR</button>
+        </a>
+        <a href="{% url 'register' %}">
+         <button class="registra" >REGISTRE-SE</button>
+      </a>
+    {% endif %}
+    <div class="box">
+        <h1 class="titulo1">🦇Bem-vindo ao Diário Virtual🦇</h1>
+        <h2 class="titulo2">Esse é um site para você escrever seus sonhos, seu dia a dia ou apenas desabafos pessoais.</h2>
+        <h2 class="titulo3" >Um diário virtual com a temática da grandiosa série The Vampire Diaries.</h2>
+        <h2 class="titulo4" >Todo o conteúdo desse site é gratuito, foi feito por fãs para fãs.</h2>
+        <h2 class="titulo5">Uma boa escrita para todos os fãs dos Salvatores.</h2>
+        
+    </div>
+
+    <div class="book">
+        <div class="cover">
+            <div class="cover-front"></div>
+                
+            <div class="cover-back"></div>
+        </div>
+        <div class="pages"></div>
+    </div>
+    
+</body>
+</html>
